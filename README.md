@@ -13,17 +13,17 @@ The algorithm works by generating the next number of the sequence through the su
 ### Dynamic Programming - Fibonacci Memoization
 A straight-forward method of approching the Fibonacci Sequence Problem is to write code as follows:
 
->int fib(int n) {
+int fib(int n) {
 
->    if (n <= 1) {
+    if (n <= 1) {
 
->        return n;
+        return n;
 
->    }
+    }
 
->    return fib(n - 1) + fib(n - 2);
+return fib(n - 1) + fib(n - 2);
 
->}
+}
 
 Although simple, we soon see a drastic slow down as we increase the index of n in the for of O(2<sup>n</sup>)
 The following approach will use memoization, storing recursive calls that are found else where in the sequence, to decrease the time complexity of our recursive algorithm.
