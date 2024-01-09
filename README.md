@@ -19,7 +19,7 @@ A straight-forward method of approching the Fibonacci Sequence Problem is to wri
     
     return fib(n - 1) + fib(n - 2);
 
-Although simple, we soon see a drastic slow down as we increase the index of n in the for of O(2<sup>n</sup>)
+Although simple, we soon see a drastic slow down as we increase the index of n in the for of O(2<sup>n</sup>).
 
 The following approach will use memoization, storing recursive calls that are found else where in the sequence, to decrease the time complexity of our recursive algorithm.
 
@@ -38,7 +38,22 @@ Because we can only change one of the dimensions by one, we can build a tree fro
 2. Subtract the once on columns, shift next node to the right
 3. If either row or column reaches index 0, then skip node
 
-We continue through this process until all possible paths are accounted. Similarly to the Fibonacci problem, this recursive traveler problem tends to get exponetially slower in the form of O(2<sup>m+n</sup>).
+We continue through this process until all possible paths are accounted. Similarly to the Fibonacci problem, this recursive traveler problem tends to get exponetially slower in the form of O(2<sup>m*n</sup>).
 
 ### Grid Traversal - Memoization
 If we were to flesh out a tree starting from (2, 3), we would see (1,2), (0,2), (1,1) repeat twice, additionally we can also note that (2,1), (1,1), (2,0) takes the same amount of steps and has interchangeable parameters. Thus we can memoize this pattern to decrease the time complexity of this problem. 
+
+## Can Sum Problem
+>Write a function ```canSum(targetSum, numbers)``` that takes in a target sum and an array of numbers as arguments.
+
+The function should return a boolean indicating whether or not it is possible to generate the ```targetSum``` using ```numbers``` from the array argument.
+
+Assume that you may use an element of the array as many times as needed, and that all inputs are nonnegative integers.
+
+### Solving canSolve Recursively
+We can set our ```targetSum``` as the head node and call a recursive function for each ```number``` in the array, creating a tree model. With each recursive call we a smaller remainder potentially leading to the following two cases:
+
+1. After exploring all possible combinations, no sum of numbers equal to the targetSum, returning false
+2. Return true, if at least one combination of numbers equals to the targetSum
+
+If we were to have a large targetSum, and an undefined array of numbers, we would eventually get a large problem, that results in a slow program with a time complexity of O(n<sup>m</sup>), n being the length of the array and m the target sum. We can reduce the time complexity by implementing a memoization structure. 
