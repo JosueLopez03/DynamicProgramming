@@ -7,17 +7,28 @@ Typically, you are asked to write a function '```fib(n)```' that takes in a numb
 The algorithm works by generating the next number of the sequence through the sum of the previous two numbers. Typically, the 1st and 2nd number of the sequence is 1. The sequence is as shown:
 
 > n: 1, 2, 3, 4, 5, 6, 7, 8, 9, ...
+
 > ```fib(n)```: 1, 1, 2, 3, 5, 8, 13, 21, 34, ... 
 
 ### Dynamic Programming - Fibonacci Memoization
 A straight-forward method of approching the Fibonacci Sequence Problem is to write code as follows:
+
 >int fib(int n) {
+
 >    if (n <= 1) {
+
 >        return n;
+
 >    }
+
 >    return fib(n - 1) + fib(n - 2);
+
 >}
+
 Although simple, we soon see a drastic slow down as we increase the index of n in the for of O(2<sup>n</sup>)
 The following approach will use memoization, storing recursive calls that are found else where in the sequence, to decrease the time complexity of our recursive algorithm.
 
 ## Grid Traveler Problem
+Say that you are a traveler on a 2D grid. You begin in the top-left corner and your goal is to travel to the bottom-right corner. You may only move down or right.
+In how many ways can you travel to the goal on a grid with dimensions m * n?
+>Write a function ```gridTraveler(m, n)``` that calculates this...
